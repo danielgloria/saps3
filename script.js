@@ -14,8 +14,13 @@ function getValue(name) {
 document.getElementById('saps-form').addEventListener('submit', function(e) {
   e.preventDefault();
   let total = 16; // compensação padrão
-  let variaveis = ['admissao','vasoativas','infeccao','imuno','comorbidade'];
+  let variaveis = ['admissao','vasoativas','infeccao','imuno'];
   variaveis.forEach(v => total += getValue(v));
+
+  let comorbs = Array.from(document.querySelectorAll('input[name="comorbidade"]:checked'))
+                     .map(cb => parseInt(cb.value));
+  let pontuacaoComorb = comorbs.length ? Math.max(...comorbs) : 0;
+  total += pontuacaoComorb;
 
   let x = -32.6659 + Math.log(total + 20.5958) * 7.8321;
   let mortalidade = (Math.exp(x) / (1 + Math.exp(x))) * 100;
