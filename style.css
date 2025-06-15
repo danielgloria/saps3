@@ -8,10 +8,18 @@ form {
   border-radius: 8px;
   max-width: 600px;
 }
-input, select, label, button {
+input[type="text"], button {
   display: block;
   width: 100%;
   margin-top: 10px;
+}
+label {
+  display: block;
+  margin-left: 15px;
+}
+p {
+  margin-top: 20px;
+  font-weight: bold;
 }
 button {
   padding: 10px;
