@@ -1,25 +1,27 @@
 body {
   font-family: Arial, sans-serif;
   margin: 40px;
+  background-color: #f9f9f9;
 }
-
 form {
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  width: 300px;
+  width: 400px;
 }
-
-input, label {
+fieldset {
+  margin-bottom: 15px;
+}
+input, select, label, button {
   display: block;
   width: 100%;
+  margin-top: 5px;
 }
-
 button {
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 10px;
+  font-weight: bold;
 }
-
 #resultado {
   margin-top: 20px;
   font-weight: bold;

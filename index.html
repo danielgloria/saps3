@@ -8,17 +8,42 @@
 <body>
   <h1>Calculadora SAPS 3</h1>
   <form id="saps-form">
-    <label for="idade">Idade:</label>
-    <input type="number" id="idade" name="idade" required><br><br>
+    <fieldset>
+      <legend>Identificação (opcional)</legend>
+      <label for="iniciais">Iniciais do Paciente:</label>
+      <input type="text" id="iniciais" name="iniciais"><br>
+      <label for="atendimento">Nº Atendimento:</label>
+      <input type="text" id="atendimento" name="atendimento"><br>
+    </fieldset><br>
 
-    <label for="pas">Pressão Sistólica (mmHg):</label>
-    <input type="number" id="pas" name="pas" required><br><br>
+    <fieldset>
+      <legend>Variáveis Clínicas</legend>
+      <label>Idade:</label>
+      <input type="number" id="idade"><br>
 
-    <label for="temp">Temperatura (°C):</label>
-    <input type="number" step="0.1" id="temp" name="temp" required><br><br>
+      <label>Comorbidades (pontuação total):</label>
+      <input type="number" id="comorbidades"><br>
 
-    <label for="ecg">Glasgow (ECG):</label>
-    <input type="number" id="ecg" name="ecg" min="3" max="15" required><br><br>
+      <label>Tempo de internação pré-UTI (dias):</label>
+      <input type="number" id="dias_pre_uti"><br>
+
+      <label>Localização pré-UTI:</label>
+      <select id="local_pre_uti">
+        <option value="0">Selecionar</option>
+        <option value="5">Pronto Socorro</option>
+        <option value="7">Outra UTI</option>
+        <option value="8">Outra ala</option>
+      </select><br>
+
+      <label>Pressão Sistólica (mmHg):</label>
+      <input type="number" id="pas"><br>
+
+      <label>Temperatura (°C):</label>
+      <input type="number" step="0.1" id="temp"><br>
+
+      <label>Glasgow (ECG):</label>
+      <input type="number" id="ecg"><br>
+    </fieldset><br>
 
     <button type="submit">Calcular SAPS 3</button>
   </form>
