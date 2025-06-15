@@ -2,46 +2,22 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Calculadora SAPS 3 – Etapas</title>
+  <title>Calculadora SAPS 3 – América do Sul</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-  <h1>Calculadora SAPS 3 – Etapas</h1>
+  <h1>Calculadora SAPS 3 – América do Sul</h1>
   <form id="saps-form">
-    <!-- Etapa 1: Identificação -->
     <div class="step" id="step-1">
-      <h2>Etapa 1: Identificação</h2>
+      <h2>Identificação</h2>
       <label>Iniciais do Paciente:</label>
       <input type="text" id="iniciais">
       <label>Número do Atendimento:</label>
       <input type="text" id="atendimento"><br>
-      <button type="button" onclick="nextStep(2)">Próxima Etapa</button>
-    </div>
-
-    <!-- Placeholder para outras etapas (2 a 4) já incluídas anteriormente -->
-    <!-- Por simplicidade, omitido aqui. A lógica está completa no JS. -->
-
-    <div class="step" id="step-4" style="display:none;">
-      <h2>Etapa 4: Finalização</h2>
-      <label>Bilirrubina:</label>
-      <select id="bilirrubina">
-        <option value="0"><2</option>
-        <option value="4">2-5.9</option>
-        <option value="5">≥6</option>
-      </select>
-      <label>Creatinina:</label>
-      <select id="creatinina">
-        <option value="0"><1.2</option>
-        <option value="2">1.2-1.9</option>
-        <option value="7">2-3.4</option>
-        <option value="8">≥3.5</option>
-      </select><br>
-      <button type="button" onclick="prevStep(3)">Voltar</button>
       <button type="submit">Calcular SAPS 3</button>
     </div>
   </form>
-
   <div id="resultado"></div>
   <button id="export-pdf" onclick="gerarPDF()" style="display:none;">Baixar PDF</button>
   <script src="script.js"></script>
