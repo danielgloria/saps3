@@ -1,132 +1,105 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>SAPS 3 – América do Sul (Completo)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAPS 3 - Calculadora</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-  <h1>Calculadora SAPS 3 – América do Sul</h1>
-  <form id="saps-form">
-    <div class="step" id="step-1">
-      <h2>Etapa 1: Identificação</h2>
-      <input type="text" id="iniciais" placeholder="Iniciais do Paciente" />
-      <input type="text" id="atendimento" placeholder="Número do Atendimento" />
-      <button type="button" onclick="nextStep(2)">Próxima Etapa</button>
-    </div>
+  <main>
+    <h1>SAPS 3 – América do Sul</h1>
+    <form id="saps-form">
+      <div class="step" id="step-1">
+        <h2>Etapa 1: Identificação</h2>
+        <label>Iniciais do Paciente:
+          <input type="text" id="iniciais" name="iniciais" /></label>
+        <label>Número do Atendimento:
+          <input type="text" id="atendimento" name="atendimento" /></label>
+        <button type="button" onclick="nextStep(2)">Próxima Etapa</button>
+      </div>
 
-    <div class="step" id="step-2" style="display:none;">
-      <h2>Etapa 2: Admissão</h2>
-      <!-- Campos existentes + drogas vasoativas + infecção + imunossupressão -->
-      <fieldset><legend>Admissão Planejada</legend>
-        <label><input type="radio" name="admissao" value="0" /> Planejada</label>
-        <label><input type="radio" name="admissao" value="3" /> Não planejada</label>
-      </fieldset>
-      <fieldset><legend>Drogas vasoativas pré-admissão</legend>
-        <label><input type="radio" name="vasoativas" value="0" /> Não</label>
-        <label><input type="radio" name="vasoativas" value="3" /> Sim</label>
-      </fieldset>
-      <fieldset><legend>Infecção aguda</legend>
-        <label><input type="radio" name="infeccao" value="0" /> Nenhuma</label>
-        <label><input type="radio" name="infeccao" value="4" /> Nosocomial</label>
-        <label><input type="radio" name="infeccao" value="5" /> Respiratória</label>
-      </fieldset>
-      <fieldset><legend>Estado imunossuprimido</legend>
-        <label><input type="radio" name="imuno" value="0" /> Nenhum</label>
-        <label><input type="radio" name="imuno" value="3" /> Quimio/esteroide</label>
-      </fieldset>
-      <button type="button" onclick="nextStep(3)">Próxima Etapa</button>
-      <button type="button" onclick="prevStep(1)">Voltar</button>
-    </div>
+      <div class="step" id="step-2" style="display:none;">
+        <h2>Etapa 2: Dados de Admissão</h2>
+        <!-- Campos da Etapa 2 aqui -->
+        <button type="button" onclick="prevStep(1)">Voltar</button>
+        <button type="button" onclick="nextStep(3)">Próxima Etapa</button>
+      </div>
 
-    <div class="step" id="step-3" style="display:none;">
-      <h2>Etapa 3: Clínicas</h2>
-      <fieldset><legend>Comorbidades (marcar todas que se aplicam)</legend>
-    <label><input type="checkbox" name="comorbidade" value="6" /> IC NYHA IV</label>
-    <label><input type="checkbox" name="comorbidade" value="6" /> Câncer hematológico</label>
-    <label><input type="checkbox" name="comorbidade" value="8" /> Cirrose</label>
-    <label><input type="checkbox" name="comorbidade" value="8" /> AIDS</label>
-    <label><input type="checkbox" name="comorbidade" value="11" /> Câncer metastático</label>
-    </fieldset>
-        <label><input type="radio" name="comorbidade" value="0" /> Nenhuma</label>
-        <label><input type="radio" name="comorbidade" value="6" /> IC NYHA IV</label>
-        <label><input type="radio" name="comorbidade" value="6" /> Câncer hematológico</label>
-        <label><input type="radio" name="comorbidade" value="8" /> Cirrose</label>
-        <label><input type="radio" name="comorbidade" value="8" /> AIDS</label>
-        <label><input type="radio" name="comorbidade" value="11" /> Câncer metastático</label>
-      </fieldset>
-      <button type="button" onclick="nextStep(4)">Próxima Etapa</button>
-      <button type="button" onclick="prevStep(2)">Voltar</button>
-    </div>
+      <div class="step" id="step-3" style="display:none;">
+        <h2>Etapa 3: Variáveis Clínicas</h2>
+        <!-- Campos da Etapa 3 aqui -->
+        <button type="button" onclick="prevStep(2)">Voltar</button>
+        <button type="button" onclick="nextStep(4)">Próxima Etapa</button>
+      </div>
 
-    <div class="step" id="step-4" style="display:none;">
-      <h2>Etapa 4: Laboratoriais</h2>
-      <!-- Placeholder para variáveis laboratoriais -->
-      <p>[Variáveis laboratoriais aqui]</p>
-      <button type="submit">Calcular SAPS 3</button>
-      <button type="button" onclick="prevStep(3)">Voltar</button>
-    </div>
-  
-<div class="step" id="step-4" style="display:none;">
-  <h2>Etapa 4: Variáveis Laboratoriais</h2>
+      <div class="step" id="step-4" style="display:none;">
+        <h2>Etapa 4: Variáveis Laboratoriais</h2>
 
-  <fieldset><legend>Leucócitos (G/L)</legend>
-    <label><input type="radio" name="leuco" value="0" /> &lt;15</label>
-    <label><input type="radio" name="leuco" value="2" /> ≥15</label>
-  </fieldset>
+        <fieldset><legend>Bilirrubina total (mg/dL)</legend>
+          <label><input type="radio" name="bilirrubina" value="0" /> &lt;2</label>
+          <label><input type="radio" name="bilirrubina" value="4" /> 2–5,9</label>
+          <label><input type="radio" name="bilirrubina" value="5" /> ≥6</label>
+        </fieldset>
 
-  <fieldset><legend>pH arterial</legend>
-    <label><input type="radio" name="ph" value="0" /> &gt;7,25</label>
-    <label><input type="radio" name="ph" value="3" /> ≤7,25</label>
-  </fieldset>
+        <fieldset><legend>Temperatura corporal (°C)</legend>
+          <label><input type="radio" name="temp" value="0" /> ≥35</label>
+          <label><input type="radio" name="temp" value="7" /> &lt;35</label>
+        </fieldset>
 
-  <fieldset><legend>Plaquetas (G/L)</legend>
-    <label><input type="radio" name="plaquetas" value="0" /> ≥100</label>
-    <label><input type="radio" name="plaquetas" value="5" /> 50–99</label>
-    <label><input type="radio" name="plaquetas" value="8" /> 20–49</label>
-    <label><input type="radio" name="plaquetas" value="13" /> &lt;20</label>
-  </fieldset>
+        <fieldset><legend>Creatinina (mg/dL)</legend>
+          <label><input type="radio" name="creatinina" value="0" /> &lt;1,2</label>
+          <label><input type="radio" name="creatinina" value="2" /> 1,2–1,9</label>
+          <label><input type="radio" name="creatinina" value="7" /> 2–3,4</label>
+          <label><input type="radio" name="creatinina" value="8" /> ≥3,5</label>
+        </fieldset>
 
-  <fieldset><legend>Bilirrubina total (mg/dL)</legend>
-    <label><input type="radio" name="bilirrubina" value="0" /> &lt;2</label>
-    <label><input type="radio" name="bilirrubina" value="4" /> 2–5,9</label>
-    <label><input type="radio" name="bilirrubina" value="5" /> ≥6</label>
-  </fieldset>
+        <fieldset><legend>Frequência cardíaca (bpm)</legend>
+          <label><input type="radio" name="fc" value="0" /> &lt;120</label>
+          <label><input type="radio" name="fc" value="5" /> 120–159</label>
+          <label><input type="radio" name="fc" value="7" /> ≥160</label>
+        </fieldset>
 
-  <fieldset><legend>Creatinina (mg/dL)</legend>
-    <label><input type="radio" name="creatinina" value="0" /> &lt;1,2</label>
-    <label><input type="radio" name="creatinina" value="2" /> 1,2–1,9</label>
-    <label><input type="radio" name="creatinina" value="7" /> 2–3,4</label>
-    <label><input type="radio" name="creatinina" value="8" /> ≥3,5</label>
-  </fieldset>
+        <fieldset><legend>Leucócitos (G/L)</legend>
+          <label><input type="radio" name="leuco" value="0" /> &lt;15</label>
+          <label><input type="radio" name="leuco" value="2" /> ≥15</label>
+        </fieldset>
 
-  <fieldset><legend>Temperatura corporal (°C)</legend>
-    <label><input type="radio" name="temp" value="0" /> ≥35</label>
-    <label><input type="radio" name="temp" value="7" /> &lt;35</label>
-  </fieldset>
+        <fieldset><legend>pH arterial</legend>
+          <label><input type="radio" name="ph" value="0" /> &gt;7,25</label>
+          <label><input type="radio" name="ph" value="3" /> ≤7,25</label>
+        </fieldset>
 
-  <fieldset><legend>Pressão arterial sistólica (mm Hg)</legend>
-    <label><input type="radio" name="pas" value="0" /> ≥120</label>
-    <label><input type="radio" name="pas" value="3" /> 70–119</label>
-    <label><input type="radio" name="pas" value="8" /> 40–69</label>
-    <label><input type="radio" name="pas" value="11" /> &lt;40</label>
-  </fieldset>
+        <fieldset><legend>Plaquetas (G/L)</legend>
+          <label><input type="radio" name="plaquetas" value="0" /> ≥100</label>
+          <label><input type="radio" name="plaquetas" value="5" /> 50–99</label>
+          <label><input type="radio" name="plaquetas" value="8" /> 20–49</label>
+          <label><input type="radio" name="plaquetas" value="13" /> &lt;20</label>
+        </fieldset>
 
-  <fieldset><legend>Oxigenação</legend>
-    <label><input type="radio" name="oxigenacao" value="0" /> PaO₂ ≥60 sem VM</label>
-    <label><input type="radio" name="oxigenacao" value="5" /> PaO₂ &lt;60 sem VM</label>
-    <label><input type="radio" name="oxigenacao" value="7" /> PaO₂/FiO₂ ≥100 com VM</label>
-    <label><input type="radio" name="oxigenacao" value="11" /> PaO₂/FiO₂ &lt;100 com VM</label>
-  </fieldset>
+        <fieldset><legend>Pressão arterial sistólica (mm Hg)</legend>
+          <label><input type="radio" name="pas" value="0" /> ≥120</label>
+          <label><input type="radio" name="pas" value="3" /> 70–119</label>
+          <label><input type="radio" name="pas" value="8" /> 40–69</label>
+          <label><input type="radio" name="pas" value="11" /> &lt;40</label>
+        </fieldset>
 
-  <button type="submit">Calcular SAPS 3</button>
-  <button type="button" onclick="prevStep(3)">Voltar</button>
-</div>
+        <fieldset><legend>Oxigenação</legend>
+          <label><input type="radio" name="oxigenacao" value="0" /> PaO₂ ≥60 sem VM</label>
+          <label><input type="radio" name="oxigenacao" value="5" /> PaO₂ &lt;60 sem VM</label>
+          <label><input type="radio" name="oxigenacao" value="7" /> PaO₂/FiO₂ ≥100 com VM</label>
+          <label><input type="radio" name="oxigenacao" value="11" /> PaO₂/FiO₂ &lt;100 com VM</label>
+        </fieldset>
 
-</form>
-  <div id="resultado"></div>
-  <button id="export-pdf" onclick="gerarPDF()" style="display:none;">Baixar PDF</button>
+        <button type="submit" style="margin-top: 20px;">Calcular SAPS 3</button>
+        <button type="button" onclick="prevStep(3)">Voltar</button>
+      </div>
+    </form>
+    <div id="resultado"></div>
+    <button id="export-pdf" onclick="gerarPDF()" style="display:none;">Exportar PDF</button>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
