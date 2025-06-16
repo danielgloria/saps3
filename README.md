@@ -1,59 +1,55 @@
-# Calculadora SAPS 3
+# SAPS 3 – Calculadora (América do Sul)
 
-Esta é uma calculadora web interativa para o escore **SAPS 3 (Simplified Acute Physiology Score 3)**, utilizada na avaliação de gravidade e estimativa de mortalidade de pacientes na admissão à Unidade de Terapia Intensiva (UTI).
+Este projeto é uma calculadora interativa para o escore **SAPS 3 (Simplified Acute Physiology Score 3)**, adaptada para a fórmula **regional da América do Sul**, com layout inspirado na MDCalc.
 
----
+## 🧮 Funcionalidades
 
-## 🩺 Funcionalidades
+- Interface em etapas para facilitar o preenchimento:
+  - Etapa 1: Identificação do paciente
+  - Etapa 2: Dados de admissão na UTI
+  - Etapa 3: Variáveis clínicas
+  - Etapa 4: Variáveis laboratoriais
+- Cálculo automatizado do escore SAPS 3
+- Estimativa de mortalidade hospitalar com base na fórmula oficial (região América do Sul)
+- Exportação do resultado final em PDF
+- Interface responsiva e objetiva, ideal para uso clínico
 
-- Interface simples e responsiva baseada em HTML/CSS/JavaScript
-- Campos de entrada com os principais critérios clínicos e fisiológicos do SAPS 3
-- Cálculo automatizado da pontuação SAPS 3
-- Estimativa da **mortalidade hospitalar (%)** com base na fórmula publicada:
+## 🌎 Fórmula Regional América do Sul
 
-  ```
-  Mortalidade (%) = [e^x / (1 + e^x)] × 100
-  onde x = −32,6659 + ln(SAPS 3 + 20,5958) × 7,3068
-  ```
+> Mortalidade hospitalar (%) =  
+> **[ eˣ / (1 + eˣ) ] × 100**,  
+> onde:  
+> **x = −32,6659 + ln(SAPS3 + 20,5958) × 7,3068**
 
-- Campos opcionais para identificação: **Iniciais do paciente** e **número de atendimento**
-- Pronto para deploy como site estático
+## 📦 Como acessar
 
----
+O projeto está publicado via **GitHub Pages** no link abaixo:
 
-## 🛠️ Como usar
+🔗 https://SEU-USUARIO.github.io/saps3-calculadora/
 
-1. Clone ou baixe o projeto:
+_(substitua SEU-USUARIO pelo seu usuário GitHub)_
+
+## 🛠️ Como usar localmente
+
+1. Baixe o `.zip` do projeto ou clone o repositório:
+   ```bash
+   git clone https://github.com/SEU-USUARIO/saps3-calculadora.git
    ```
-   git clone https://github.com/seu-usuario/saps3-calculadora.git
-   ```
+2. Abra o arquivo `index.html` em qualquer navegador moderno.
+3. Preencha as etapas e clique em **“Calcular SAPS 3”**.
+4. Exporte em PDF se necessário.
 
-2. Abra o arquivo `index.html` em seu navegador
+## 📌 Observações
 
-3. Preencha os campos clínicos disponíveis
-
-4. Clique em **Calcular SAPS 3**
-
-5. Visualize a pontuação estimada e a mortalidade projetada
-
----
-
-## 🚀 Deploy com Render (Static Site)
-
-1. Suba este projeto no GitHub
-2. Acesse: https://render.com
-3. Crie um novo **Static Site**
-4. Configure:
-   - **Build command**: (deixe em branco)
-   - **Publish directory**: `.`
-5. Após deploy, o site estará online com uma URL pública
-
----
+- Esta ferramenta segue os critérios internacionais de cálculo SAPS 3.
+- A fórmula e a lógica de pontuação foram adaptadas para refletir a **versão completa do escore**.
+- Indicada para uso assistencial, educacional ou em projetos de melhoria na UTI.
 
 ## 📄 Licença
 
-Uso livre para fins educacionais, clínicos e institucionais. Nenhuma informação pessoal é armazenada.
+Distribuído sob licença MIT. Consulte o arquivo `LICENSE` para mais detalhes.
 
 ---
 
-Desenvolvido com ❤️ para apoiar decisões assistenciais em terapia intensiva.
+### Desenvolvido por  
+[Seu Nome ou Instituição] – [Seu e-mail ou contato profissional]
